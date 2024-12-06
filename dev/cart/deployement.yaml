@@ -3,28 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: cart
-  name: cart
+    app: nginx
+  name: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cart
+      app: nginx
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: cart
+        app: nginx
     spec:
       containers:
-      - image: nginx:alpine
-        name: cart
-        volumeMounts:
-        - mountPath: /usr/share/nginx/html
-          name: index
-      volumes:
-      - name: index
-        configMap:
-          name: cart
+      - image: nginx
+        name: nginx
+        resources: {}
 status: {}
